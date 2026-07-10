@@ -1,6 +1,7 @@
 class Solution {
 public:
-    vector<vector<vector<int>>> dp;
+    // vector<vector<vector<int>>> dp;
+     int dp[100001][2][3];
 
     int solve(vector<int>& prices, int index, bool canBuy, int maxTransaction) {
 
@@ -34,7 +35,9 @@ public:
 
         int n = prices.size();
 
-        dp.resize(n, vector<vector<int>>(2, vector<int>(3, -1)));
+        // dp.resize(n, vector<vector<int>>(2, vector<int>(3, -1)));
+                memset(dp, -1, sizeof(dp));
+
 
         return solve(prices, 0, true, 2);
     }
