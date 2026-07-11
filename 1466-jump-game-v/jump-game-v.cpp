@@ -11,20 +11,12 @@ public:
         int ans = 1;
 
         // Jump to the left
-        for (int j = i - 1; j >= max(0, i - d); j--) {
-
-            if (arr[j] >= arr[i])
-                break;
-
+        for (int j = i - 1; j >= max(0, i - d) && arr[j] < arr[i]; j--) {
             ans = max(ans, 1 + solve(arr, j, d));
         }
 
         // Jump to the right
-        for (int j = i + 1; j <= min(n - 1, i + d); j++) {
-
-            if (arr[j] >= arr[i])
-                break;
-
+        for (int j = i + 1; j <= min(n - 1, i + d)&& arr[j] < arr[i]; j++) {
             ans = max(ans, 1 + solve(arr, j, d));
         }
 
